@@ -1,0 +1,27 @@
+module winwin
+{
+    struct TarsFile {
+        0 require string packageName;
+        1 require string revision;
+        2 require string fileName;
+        3 require string content;
+    };
+
+    struct TarsFileQuery {
+        0 require string packageName;
+        1 require string revision;
+        2 require string fileName;
+        3 optional int version = 0;
+    };
+
+    interface TarsFileRegistry
+    {
+        int add(TarsFile file);
+
+        vector<string> listFiles(string packageName, string revision);
+
+        vector<int> listVersions(string packageName, string revision, string fileName, int limit);
+
+        string getContent(TarsFileQuery query);
+    };
+};

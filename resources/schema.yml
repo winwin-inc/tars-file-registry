@@ -1,0 +1,36 @@
+tars_file:
+  columns:
+    id: 'integer notnull autoincrement'
+    update_time: 'datetime notnull'
+    create_time: 'datetime notnull'
+    package_name: 'string(60) fixed notnull {"comment": "包名"}'
+    revision: 'string(40) notnull {"comment":"分支名称"}'
+    file_name: 'string(30) notnull {"comment":"文件名"}'
+    checksum: 'string(40) notnull {"comment":"文件哈希值"}'
+    size: 'integer notnull {"comment":"文件大小"}'
+    version: 'integer notnull {"comment":"文件版本号"}'
+    file_path: 'string(128) notnull {"comment":"文件路径"}'
+  indexes:
+    PRIMARY: 'PRIMARY KEY(id)'
+    idx_package: 'KEY(package_name, revision)'
+    uk_file: 'UNIQUE KEY(package_name, revision, file_name)'
+    
+tars_file_version:
+  columns:
+    id: 'integer notnull autoincrement'
+    update_time: 'datetime notnull'
+    create_time: 'datetime notnull'
+    file_id: 'integer notnull {"comment":"文件ID"}'
+    version: 'integer notnull {"comment":"文件版本号"}'
+    file_path: 'string(128) notnull {"comment":"文件路径"}'
+  indexes:
+    PRIMARY: 'PRIMARY KEY(id)'
+    uk_file: 'UNIQUE KEY(file_id, version)'
+    
+tars_file_content:
+  columns:
+    file_path: 'string(128) notnull {"comment":"文件路径"}'
+    content: 'text notnull'
+  indexes:
+    PRIMARY: 'PRIMARY KEY(file_path)'
+    
