@@ -118,7 +118,14 @@ class TarsFileRegistryServantImpl implements TarsFileRegistryServant
             'packageName' => $packageName,
             'revision' => $revision,
         ]));
-        return Arrays::pull($files, 'fileName');
+        return array_map(static function (TarsFile $file) {
+            $fileDto = new \winwin\tars\file\servant\TarsFile();
+            $fileDto->packageName = $file->getPackageName();
+            $fileDto->fileName = $file->getFileName();
+            $fileDto->revision = $file->getRevision();
+            $fileDto->md5 = $file->getChecksum();
+            return $fileDto;
+        }, $files);
     }
 
     /**

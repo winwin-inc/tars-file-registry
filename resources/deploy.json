@@ -12,7 +12,7 @@
     "developer": "",
     "adapters": [
         {
-            "obj_name": "TarsFileRegistryServerObj",
+            "obj_name": "TarsFileRegistryObj",
             "bind_ip": "192.168.0.216",
             "port": 10103,
             "port_type": "tcp",

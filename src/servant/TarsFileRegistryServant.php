@@ -30,7 +30,7 @@ interface TarsFileRegistryServant
     /**
      * @TarsParameter(name = "packageName", type = "string")
      * @TarsParameter(name = "revision", type = "string")
-     * @TarsReturnType(type = "vector<string>")
+     * @TarsReturnType(type = "vector<TarsFile>")
      *
      * @param string $packageName
      * @param string $revision

@@ -32,9 +32,15 @@ final class TarsFile
     public $fileName;
 
     /**
-     * @TarsProperty(order = 3, required = true, type = "string")
+     * @TarsProperty(order = 3, required = false, type = "string")
      * @var string
      */
     public $content;
+
+    /**
+     * @TarsProperty(order = 4, required = false, type = "string")
+     * @var string
+     */
+    public $md5;
 
 }

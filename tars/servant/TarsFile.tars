@@ -4,7 +4,8 @@ module winwin
         0 require string packageName;
         1 require string revision;
         2 require string fileName;
-        3 require string content;
+        3 optional string content;
+        4 optional string md5;
     };
 
     struct TarsFileQuery {
@@ -18,7 +19,7 @@ module winwin
     {
         int add(TarsFile file);
 
-        vector<string> listFiles(string packageName, string revision);
+        vector<TarsFile> listFiles(string packageName, string revision);
 
         vector<int> listVersions(string packageName, string revision, string fileName, int limit);
 
