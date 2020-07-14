@@ -23,6 +23,8 @@ module winwin
 
         vector<int> listVersions(string packageName, string revision, string fileName, int limit);
 
+        vector<string> listRevisions(string packageName);
+
         string getContent(TarsFileQuery query);
     };
 };

@@ -54,6 +54,15 @@ interface TarsFileRegistryServant
     public function listVersions($packageName, $revision, $fileName, $limit);
 
     /**
+     * @TarsParameter(name = "packageName", type = "string")
+     * @TarsReturnType(type = "vector<string>")
+     *
+     * @param string $packageName
+     * @return array
+     */
+    public function listRevisions($packageName);
+
+    /**
      * @TarsParameter(name = "query", type = "TarsFileQuery")
      * @TarsReturnType(type = "string")
      *

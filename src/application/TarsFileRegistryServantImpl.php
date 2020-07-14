@@ -155,6 +155,17 @@ class TarsFileRegistryServantImpl implements TarsFileRegistryServant
     /**
      * @inheritDoc
      */
+    public function listRevisions($packageName)
+    {
+        $files = $this->tarsFileRepository->findAllBy(Criteria::create([
+            'packageName' => $packageName,
+        ]));
+        return array_values(array_unique(Arrays::pull($files, 'revision')));
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getContent($query)
     {
         $exist = $this->tarsFileRepository->findFirstBy(Criteria::create([

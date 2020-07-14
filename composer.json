@@ -40,29 +40,9 @@
             ],
             "configuration": [
                 "kuiper\\db\\DbConfiguration"
-                ]
+            ]
         },
         "tars": {
-            "manifest": [
-                "composer.json",
-                {
-                    "in": "src"
-                },
-                {
-                    "followLinks": true,
-                    "exclude": [
-                        "phpunit",
-                        "symfony/finder",
-                        "php-cs-fixer",
-                        "mockery",
-                        "hamcrest",
-                        "kuiper/vendor",
-                        "tars/vendor",
-                        "tars-gen"
-                    ],
-                    "in": "vendor"
-                }
-            ],
             "serverName": "TarsFileRegistryServer"
         }
     },
